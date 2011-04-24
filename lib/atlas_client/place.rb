@@ -1,16 +1,6 @@
 module AtlasClient
-  class  Place
+  class Place
     require 'json'
-    require 'net/http'
-    
-    @url = "http://lposfusion.load.lpo:3000/places"
-    
-    def self.find id
-      response = Net::HTTP.get URI.parse(@url+"?where[id]=#{id}")
-      json = JSON.parse response
-      place_json = json['places'][0]
-      Place.new place_json
-    end
     
     def initialize json
      @json = json
@@ -20,8 +10,8 @@ module AtlasClient
       @json[name.to_s]
     end
     
-    def json
-      @json
+    def pois
+      @pois ||= PoiFinder.find_by_place_id id
     end
   end
 end
