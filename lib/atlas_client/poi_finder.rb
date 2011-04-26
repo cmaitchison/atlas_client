@@ -2,8 +2,8 @@ module AtlasClient
   class PoiFinder < Finder
     require 'json'
 
-    @pois_url = "http://lposfusion.load.lpo:3000/pois?"
-  
+    @pois_url = "http://lposfusion.load.lpo/pois?"
+    
     def self.find_by_place_id place_id
       query "where[place]=#{place_id}"
     end

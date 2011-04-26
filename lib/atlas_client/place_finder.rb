@@ -2,8 +2,8 @@ module AtlasClient
   class PlaceFinder < Finder
     require 'json'
 
-    @places_url = "http://lposfusion.load.lpo:3000/places?"
-
+    @places_url = "http://lposfusion.load.lpo/places?"
+    
     def self.find_by_id id
       query("where[id]=#{id}").first
     end
